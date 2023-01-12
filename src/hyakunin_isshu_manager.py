@@ -11,10 +11,11 @@ class Hyakunin_Isshu_Manager:
         with open('resource/kimariji.json') as f:
             self.kimariji = json.loads(f.read())
 
-    def generate_random_button(self):
-        simonoku_list = list(self.hyakushu.values())
-        answer_simonoku = random.choice(simonoku_list)
-        simonoku_list.remove(answer_simonoku)
+        self.simonoku_list = list(self.hyakushu.values())
+
+    def generate_random_isshu(self):
+        answer_simonoku = random.choice(self.simonoku_list)
+        simonoku_list.remove(answer_simonoku)  #0になるまでゲームを続行する
 
         answer_kaminoku = [k for k, v in self.hyakushu.items() if v == answer_simonoku]
 
